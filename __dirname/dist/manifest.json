@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Fintech Categories Distribution",
-  "description": "This extension demonstrates a browser action with test.",
+  "description": "This extension demonstrates a Fintech Categories Distribution.",
   "version": "0.0.1",
 
   "browser_action": {
