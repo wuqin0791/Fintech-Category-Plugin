@@ -8,6 +8,7 @@
 import Vue from 'vue'
 import App from './app.vue'
 import echarts from 'echarts'
+import store from '../store/global';
 require('./mock')
 
 
@@ -17,5 +18,6 @@ document.body.appendChild(root);
 Vue.prototype.$echarts = echarts;
 
 new Vue({
+	store,
 	render: (h)=> h(App)
 }).$mount(root)

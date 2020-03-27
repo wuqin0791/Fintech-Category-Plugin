@@ -23,10 +23,13 @@ export default {
     };
   },
   mounted() {
-    axios.get("/api/catagory").then(res => {
-      console.log(res.data);
-      this.initCharts(res.data);
+    axios.get("/api").then(res => {
+        console.log(11);
     });
+    // axios.get("/api/catagory").then(res => {
+    //   console.log(res.data);
+    //   this.initCharts(res.data);
+    // });
     this.clientHeight =   '500';
     this.clientWidth  =   '500';
   },
@@ -43,7 +46,7 @@ export default {
     },
     initCharts(data) {
       let myChart = this.$echarts.init(this.$refs.chart);
-      let mySecondChart = this.$echarts.init(this.$refs.chart2);
+      // let mySecondChart = this.$echarts.init(this.$refs.chart2);
       let baseOption = {
         backgroundColor: "#2c343c",
 
@@ -111,7 +114,6 @@ export default {
       // 绘制图表
       myChart.setOption(option);
 
-      mySecondChart.setOption(option);
     }
   }
 };
