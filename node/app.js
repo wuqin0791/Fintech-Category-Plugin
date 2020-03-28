@@ -9,7 +9,7 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
+app.get('/api', function (req, res) {
     console.log("主页 GET 请求");
     res.send('Hello GET');
  })

@@ -2,7 +2,8 @@
 <template>
   <div>
     <div style="width:500px;height:500px" ref="chart"></div>
-    <!-- <div style="" ref="chart2"></div> -->
+    <users v-bind:users="users" :age="age" v-on:titleChanged="updateTitle"></users>
+    <div>{{title}}</div>
   </div>
 
 </template>
@@ -10,6 +11,7 @@
 import axios from "axios";
 import Vue from "vue";
 import { IndexList, IndexSection, Cell } from "mint-ui";
+import Users from './components/children1.vue'
 
 Vue.component(IndexList.name, IndexList);
 Vue.component(IndexSection.name, IndexSection);
@@ -19,17 +21,23 @@ export default {
   data() {
     return {
       clientHeight: '',
-      clientWidth: ''
+      clientWidth: '',
+      users:['Harmony', 'Jeanne'],
+      age:25,
+      title: "传递的是一个值"
     };
   },
   mounted() {
-    axios.get("/api").then(res => {
-        console.log(11);
-    });
-    // axios.get("/api/catagory").then(res => {
-    //   console.log(res.data);
-    //   this.initCharts(res.data);
+    // fetch('/api').then((res) => {
+    //   console.log(res);
+    // })
+    // axios.get("/api").then(res => {
+    //     console.log(11);
     // });
+    axios.get("/api/catagory").then(res => {
+      console.log(res.data);
+      this.initCharts(res.data);
+    });
     this.clientHeight =   '500';
     this.clientWidth  =   '500';
   },
@@ -39,6 +47,9 @@ export default {
     //   }
   },
   methods: {
+    updateTitle(e){
+      this.title = e;
+    },
     changeFixed(clientHeight, clientWidth){
       console.log(clientHeight);
       this.$refs.chart.style.height = clientHeight+'px';
@@ -115,6 +126,9 @@ export default {
       myChart.setOption(option);
 
     }
+  },
+  components:{
+    "users": Users
   }
 };
 </script>

@@ -73,8 +73,8 @@ const devConfigFun = (argument) => {
     argument.devtool = '#cheap-module-eval-source-map';
     argument.devServer = {
 
-        port: '8000',
-        host: '0.0.0.0',
+        port: 8000,
+        host: 'localhost',
         overlay: {
             errors: true
         },
@@ -82,10 +82,8 @@ const devConfigFun = (argument) => {
         hot: true,
         progress: true, //显示打包的进度
         proxy: {
-            '/api': {
-                target: 'http://localhost:3000/',
-                changeOrigin: true,
-                secure: false,
+            '/': {
+                target: 'http://localhost:3000/'
             }
         }
     }
