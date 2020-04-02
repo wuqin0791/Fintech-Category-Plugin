@@ -45,7 +45,7 @@ const moduleConfig = env => {
                     }]
                 },
                 {
-                    test: /\.(gif|jpg|jpeg|svg)/,
+                    test: /\.(gif|jpg|jpeg|svg|png)/,
                     use: [{
                         loader: 'url-loader',
                         options: {
@@ -56,6 +56,11 @@ const moduleConfig = env => {
                 }
             ]
 
+        },
+        resolve: {
+            alias: {
+                vue: 'vue/dist/vue.js'
+            },
         },
         plugins: [
             new htmlWebpackPlugin({
@@ -81,11 +86,11 @@ const devConfigFun = (argument) => {
         open: true,
         hot: true,
         progress: true, //显示打包的进度
-        proxy: {
-            '/': {
-                target: 'http://localhost:3000/'
-            }
-        }
+        // proxy: {
+        //     '/': {
+        //         target: 'http://localhost:3000/'
+        //     }
+        // }
     }
     argument.plugins.push(
         new webpack.HotModuleReplacementPlugin(),

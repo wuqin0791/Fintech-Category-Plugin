@@ -9,15 +9,19 @@ import Vue from 'vue'
 import App from './app.vue'
 import echarts from 'echarts'
 import store from '../store/global';
+import router from './router';
 require('./mock')
 
-
+// console.log(router);
 let root = document.createElement('div');
 document.body.appendChild(root);
 
 Vue.prototype.$echarts = echarts;
 
-new Vue({
+let app = new Vue({
 	store,
+	router,
+	// App
 	render: (h)=> h(App)
-}).$mount(root)
+});
+setTimeout(() => app.$mount(root), 0);

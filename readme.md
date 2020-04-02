@@ -37,6 +37,6 @@ npm run dev
 
 ```
 # 展示
-![](1.png)
+![](demo1.gif)
 # Reference: 
 https://webpack.docschina.org/concepts/
