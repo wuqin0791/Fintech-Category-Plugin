@@ -18,7 +18,7 @@ export default {
       }
   },
   props:{
-    users:{           //这个就是父组件中子标签自定义名字
+    users:{          
       type:Array,
     //   required:true
     },

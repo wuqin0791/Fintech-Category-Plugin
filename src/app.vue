@@ -3,7 +3,8 @@
   <div>
     <div style="width:500px;height:500px" ref="chart"></div>
     <users v-bind:users="users" :age="age" v-on:titleChanged="updateTitle"></users>
-    <div>{{title}}</div>
+    <div>{{fullName}}</div>
+      <button @click="setNameFun">click</button>
   </div>
 
 </template>
@@ -41,12 +42,22 @@ export default {
     this.clientHeight =   '500';
     this.clientWidth  =   '500';
   },
+  computed: {
+    fullName(){
+      return this.age + this.title;
+    }
+  },
   watch: {
+
     //  clientHeight: function () {
     //     this.changeFixed(this.clientHeight, this.clientWidth)
     //   }
   },
   methods: {
+    setNameFun(){
+      this.age = 26;
+      this.title = 'change';
+    },
     updateTitle(e){
       this.title = e;
     },
